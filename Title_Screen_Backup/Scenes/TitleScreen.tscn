@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=3 uid="uid://cewmlfblkkssf"]
+
+[ext_resource type="Theme" uid="uid://diocpnu618dec" path="res://Themes/MyTheme.tres" id="1_n15yj"]
+[ext_resource type="Script" path="res://Scripts/TiitleScreen.gd" id="1_vmg2h"]
+[ext_resource type="Texture2D" uid="uid://cyvbfieahn8ms" path="res://Resources/Backgrounds/SettingsBg.jpg" id="3_8l4an"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_n15yj")
+script = ExtResource("1_vmg2h")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_8l4an")
+
+[node name="menu" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -170.5
+offset_top = -223.5
+offset_right = 170.5
+offset_bottom = 223.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="StartButton" type="Button" parent="menu"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+focus_neighbor_top = NodePath("../QuitButton")
+text = "Start"
+
+[node name="SettingsButton" type="Button" parent="menu"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+text = "Settings"
+
+[node name="QuitButton" type="Button" parent="menu"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../StartButton")
+text = "Quit"
+
+[connection signal="pressed" from="menu/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="menu/SettingsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="menu/QuitButton" to="." method="_on_quit_button_pressed"]

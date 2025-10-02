@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://bigqj23eo0oib"]
+[gd_scene load_steps=2 format=3 uid="uid://bigqj23eo0oib"]
+
+[ext_resource type="PackedScene" uid="uid://b1g70ggnrifqd" path="res://Scenes/GeneratorGame.tscn" id="1_foo4r"]
 
 [node name="UserInterface" type="Control"]
 layout_mode = 3
@@ -38,3 +40,6 @@ layout_mode = 2
 [node name="MainView" type="Control" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="GeneratorGame" parent="VBoxContainer/HBoxContainer/MainView" instance=ExtResource("1_foo4r")]
+layout_mode = 1
